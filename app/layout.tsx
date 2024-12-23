@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google"; // Correct import
 import "./globals.css";
 
+// Font declarations
 const geistSans = Geist({
   variable: "--font-geist-sans",  // Correct font declaration
   subsets: ["latin"],
@@ -12,11 +13,17 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// Metadata for the page
 export const metadata: Metadata = {
   title: "AI Assistant Chat | Powered by Llama 3.2",
   description:
     "Engage in a conversation with our AI-powered assistant, built with the Llama 3.2 model for multilingual dialogue, summarization, and more.",
-  authors: ["Your Name"],  // Corrected property name from 'author' to 'authors'
+  authors: [
+    {
+      name: "Your Name", // The name of the author
+      url: "https://yourwebsite.com", // Optional: URL of the author's profile or website
+    },
+  ],  // Corrected to use an object with 'name' and optionally 'url'
   keywords: "AI, chatbot, assistant, Llama 3.2, Cloudflare Workers, multilingual, nextjs, tailwind",
   viewport: "width=device-width, initial-scale=1.0",
   twitter: {
