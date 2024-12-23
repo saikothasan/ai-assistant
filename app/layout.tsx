@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: "AI Assistant Chat | Powered by Llama 3.2",
   description:
     "Engage in a conversation with our AI-powered assistant, built with the Llama 3.2 model for multilingual dialogue, summarization, and more.",
-  author: "Your Name",
+  authors: ["Your Name"],  // Corrected property name from 'author' to 'authors'
   keywords: "AI, chatbot, assistant, Llama 3.2, Cloudflare Workers, multilingual, nextjs, tailwind",
   viewport: "width=device-width, initial-scale=1.0",
   twitter: {
