@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google"; // Correct import
 import "./globals.css";
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
+  variable: "--font-geist-sans",  // Correct font declaration
   subsets: ["latin"],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+  variable: "--font-geist-mono",  // Correct font declaration
   subsets: ["latin"],
 });
 
@@ -63,9 +63,10 @@ export default function RootLayout({
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
+        {/* You can add any additional head elements here */}
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`} // Applying the font variables
       >
         {children}
       </body>
