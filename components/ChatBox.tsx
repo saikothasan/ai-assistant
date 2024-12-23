@@ -31,7 +31,8 @@ export default function ChatBox() {
           { role: "bot", content: "Sorry, I couldn't process that." },
         ]);
       }
-    } catch (error) {
+    } catch (err) {
+      console.error("Chat Error:", err); // Log the error for debugging
       setMessages((prev) => [
         ...prev,
         { role: "bot", content: "An error occurred. Please try again later." },
