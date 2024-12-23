@@ -26,8 +26,8 @@ export default function ChatBox() {
       });
 
       const data = await res.json();
-      if (data.reply) {
-        setMessages((prev) => [...prev, { role: "bot", content: data.reply }]);
+      if (data.response) {
+        setMessages((prev) => [...prev, { role: "bot", content: data.response }]);
       } else {
         setMessages((prev) => [
           ...prev,
