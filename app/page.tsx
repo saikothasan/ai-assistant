@@ -2,11 +2,13 @@ import ChatBox from "../components/ChatBox";
 
 export default function Home() {
   return (
-    <main className="flex w-full max-w-3xl flex-col gap-6 p-4">
-      <h1 className="text-center text-3xl font-bold text-primary">
-        AI Assistant Chat
-      </h1>
-      <ChatBox />
+    <main className="flex flex-col items-center justify-center h-screen w-full bg-gradient-to-br from-blue-50 to-blue-100 p-4">
+      <div className="w-full max-w-3xl">
+        <h1 className="text-center text-4xl font-bold text-primary mb-6">
+          AI Assistant Chat
+        </h1>
+        <ChatBox />
+      </div>
     </main>
   );
 }
