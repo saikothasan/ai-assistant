@@ -25,7 +25,8 @@ export default function ChatInput({ onSend }: ChatInputProps) {
       />
       <button
         onClick={handleSubmit}
-        className="rounded-lg bg-primary p-2 text-white hover:bg-primary/80"
+        className="flex items-center justify-center rounded-lg bg-primary p-2 text-white hover:bg-primary/80"
+        title="Send Message"
       >
         <FaPaperPlane />
       </button>
