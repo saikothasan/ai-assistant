@@ -3,15 +3,18 @@
 import { useState } from "react";
 import ChatInput from "./ChatInput";
 import Message from "./Message";
+import { FaSpinner } from "react-icons/fa";
 
 export default function ChatBox() {
   const [messages, setMessages] = useState<{ role: string; content: string }[]>([
     { role: "bot", content: "Hello! How can I assist you today?" },
   ]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const sendMessage = async (input: string) => {
     const userMessage = { role: "user", content: input };
     setMessages((prev) => [...prev, userMessage]);
+    setIsLoading(true);
 
     try {
       const res = await fetch("/api/ai", {
@@ -32,21 +35,31 @@ export default function ChatBox() {
         ]);
       }
     } catch (err) {
-      console.error("Chat Error:", err); // Log the error for debugging
+      console.error("Chat Error:", err);
       setMessages((prev) => [
         ...prev,
         { role: "bot", content: "An error occurred. Please try again later." },
       ]);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
-    <div className="flex flex-col gap-4 rounded-lg bg-white p-4 shadow-lg">
-      <div className="flex flex-col gap-2 overflow-y-auto max-h-[400px]">
+    <div className="flex flex-col h-full max-h-[600px] w-full rounded-lg bg-white shadow-lg p-4">
+      {/* Chat Messages */}
+      <div className="flex-grow overflow-y-auto space-y-2">
         {messages.map((msg, index) => (
           <Message key={index} role={msg.role} content={msg.content} />
         ))}
+        {isLoading && (
+          <div className="flex justify-center mt-2">
+            <FaSpinner className="animate-spin text-primary" size={24} />
+          </div>
+        )}
       </div>
+
+      {/* Chat Input */}
       <ChatInput onSend={sendMessage} />
     </div>
   );
