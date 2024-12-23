@@ -15,20 +15,20 @@ export default function ChatInput({ onSend }: ChatInputProps) {
   };
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-2 w-full sm:w-auto">
       <input
         type="text"
         value={input}
         onChange={(e) => setInput(e.target.value)}
         placeholder="Type a message..."
-        className="flex-1 rounded-lg border border-gray-300 p-2 shadow-sm focus:outline-none focus:ring focus:ring-primary"
+        className="flex-1 rounded-lg border border-gray-300 p-2 shadow-sm focus:outline-none focus:ring focus:ring-primary text-sm sm:text-base md:text-lg"
       />
       <button
         onClick={handleSubmit}
-        className="flex items-center justify-center rounded-lg bg-primary p-2 text-white hover:bg-primary/80"
+        className="flex items-center justify-center rounded-lg bg-primary p-2 text-white hover:bg-primary/80 transition-colors duration-300"
         title="Send Message"
       >
-        <FaPaperPlane />
+        <FaPaperPlane size={20} />
       </button>
     </div>
   );
