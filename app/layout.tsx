@@ -25,7 +25,14 @@ export const metadata: Metadata = {
     title: "AI Assistant Chat",
     description:
       "Engage in a conversation with our AI-powered assistant, built with the Llama 3.2 model for multilingual dialogue, summarization, and more.",
-    image: "/path/to/image.jpg",
+    images: [
+      {
+        url: "/path/to/image.jpg",
+        alt: "AI Assistant Chat",
+        width: 1200,
+        height: 630,
+      },
+    ],
   },
   openGraph: {
     title: "AI Assistant Chat | Powered by Llama 3.2",
@@ -56,20 +63,6 @@ export default function RootLayout({
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600&family=Geist+Mono:wght@400;600&display=swap"
-        />
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <meta name="author" content={metadata.author} />
-        <meta name="keywords" content={metadata.keywords} />
-        {/* OpenGraph Tags */}
-        <meta property="og:title" content={metadata.openGraph.title} />
-        <meta property="og:description" content={metadata.openGraph.description} />
-        <meta property="og:image" content={metadata.openGraph.images[0].url} />
-        <meta property="og:url" content={metadata.openGraph.url} />
-        <meta property="og:site_name" content={metadata.openGraph.siteName} />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans`}
