@@ -46,9 +46,9 @@ export default function ChatBox() {
   };
 
   return (
-    <div className="flex flex-col h-full max-h-[600px] w-full rounded-lg bg-white shadow-lg p-4">
+    <div className="flex flex-col h-full max-h-[600px] w-full rounded-lg bg-light shadow-xl p-4 md:max-w-xl mx-auto transition-all duration-300 ease-in-out">
       {/* Chat Messages */}
-      <div className="flex-grow overflow-y-auto space-y-2">
+      <div className="flex-grow overflow-y-auto space-y-4 px-2 py-4 md:px-4 md:py-6">
         {messages.map((msg, index) => (
           <Message key={index} role={msg.role} content={msg.content} />
         ))}
@@ -60,7 +60,9 @@ export default function ChatBox() {
       </div>
 
       {/* Chat Input */}
-      <ChatInput onSend={sendMessage} />
+      <div className="mt-4">
+        <ChatInput onSend={sendMessage} />
+      </div>
     </div>
   );
 }
